@@ -1,0 +1,257 @@
+body {
+    background-color: transparent;
+    background-image: transparent;
+    background-size: 58px 58px;
+    background-position: 0 0, 29px 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  #hand {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 0.4rem;
+  }
+  #wheel {
+    width: 26rem;
+    height: 26rem;
+    transition: all 8s cubic-bezier(0,.57,.61,0.99);
+    filter: drop-shadow(0px 0px 10px #000);   /*drop shadow through transparent png*/
+  }
+  #button { /*SPIN button*/
+    margin-top: 1rem;
+    background-color: #FF66FF; /* Set the background color of the button */
+    color: #FFFFFF; /* Set the text color of the button */
+    border: none; /* Remove the button border */
+    padding: 10px 20px; /* Add padding to the button */
+    cursor: pointer; /* Change the cursor style on hover */
+    border-radius: 10px 0 10px 0;
+    width: 5rem;
+    font-size: 1.64rem;
+    text-align: center;
+    user-select: none;
+    font-family: 'Chakra Petch';
+    font-weight: 900;
+  }
+  #button:hover {
+    background-color: #FF66FF90;
+    cursor: pointer!important;
+  }
+  #button2 { /*history button*/
+    display: none;
+    position: absolute;
+    right: 14rem;
+    background-color: rgba(68,76,247,0.8);
+    padding: 8px 8px;
+    border: 3px solid black;
+    border-radius: 12px;
+    box-shadow: 0 5px 1.5px #999;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 1.6rem;
+    user-select: none;
+  }
+  #button2:hover {
+    background-color: rgba(68, 77, 249, 1);
+    cursor: pointer;
+  }
+  #button2:active {
+    background-color: rgba(108, 109, 128, 1);
+    transform: translate(0%, 13%);
+    box-shadow: 0 3px 1.5px #666;
+  }
+  .hide{ /*this class is for the history button to close/open the window*/
+    visibility: hidden;
+  }
+ 
+  
+  #historytext{ /*The text inside the history window. Here javascript injects the array*/
+    white-space: pre;
+    font-size: 1.4rem;
+  }
+  #slot{ /*YOU WON window*/
+    display: none;
+    left: 15rem;
+    position: absolute;
+    width: 8rem;
+    height: 5rem;
+    border: 3px solid black;
+    background-color: rgba(68,76,247,0.8);
+    box-shadow: 0 5px 1.5px #999;
+    border-radius: 12px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    user-select: none;
+  }
+  #slot>p{ /*Here javascript injects the amount you won*/
+    position: relative;
+    font-size: 1.4rem;
+    top: -18%;
+    text-align: center;
+    line-height: 0;
+  }
+  
+  #wallet{ /*The wallet window*/
+    margin-top: 2rem;
+    width: 7rem;
+    height: 3rem;
+    border: 2px solid black;
+    background-color: #8DE939;
+    border-radius: 12px;
+    text-align: center;
+    line-height: 3.6rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 1.4rem;
+    user-select: none;
+  }
+  .reducted{ /*the reducted bet amount animation when you click spin*/
+  position: absolute;
+  top: 38.45rem;
+  margin-left: 0.8rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.45rem;
+  user-select: none;
+  color: rgb(187, 1, 1);
+  text-shadow: -0.4px 0.4px 0 black,
+                0.4px 0.4px 0 black,
+                0.4px -0.4px 0 black,
+                -0.4px -0.4px 0 black;
+  }
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+ 
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-content {
+    background-color: #212121;
+    margin:auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px 0 10px 0;
+    border-color: #EC62EC;
+    
+  }
+  .p-text {
+    font-family: 'Chakra Petch';
+    text-align: center;
+    color:#AEAEAE;
+  }
+  .p-button button {
+    background-color: #8DE939;
+    color: #070e13;
+    border: none;
+    padding: 10px 30px; 
+    cursor: pointer;
+    border-radius: 10px 0 10px 0;
+    font-family: 'Chakra Petch';
+    font-size: 14px;
+  }
+  .p-button button:hover {
+    background-color: #8DE93985;
+    font-family: 'Chakra Petch';
+    padding: 10px 30px; /* Add padding to the button */
+    cursor: pointer; /* Change the cursor style on hover */
+    border-radius: 10px 0 10px 0;
+  }
+  .close {
+    color: #EC62EC;
+  }
+  
+  /*styles for list & pictures for win/bet amount information*/
+  .info{
+    display: none;
+    margin-top: 20rem;
+    position: absolute;
+    left: 14rem;
+    font-size: 1.4rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    list-style-type:none;
+  }
+  .pic{
+    width: 2rem;
+    height: 2.5rem;
+    user-select: none;
+  }
+  .pic1{
+    width: 1.8rem;
+    height: 1.8rem;
+    user-select: none;
+  }
+  .pic2{
+    width: 2.2rem;
+    height: 2.2rem;
+    user-select: none;
+  }
+  .pic3{
+    width: 2.5rem;
+    height: 2.5rem;
+    user-select: none;
+  }
+  li{
+    margin-bottom: 0.2rem;
+    user-select: none;
+  }
+  
+  
+  @media (max-width: 1140px) { /*tablet,ipad mode*/
+    #slot{font-size: 1.2rem; width: 7rem; height: 5rem;left: 0.5rem; top: 0.5rem;}
+    #wheel{width: 23rem; height: 23rem;}
+    #wallet{position: absolute; top: 2.0rem; right: 1.5rem; margin-top: 1rem;}
+    .reducted{position: absolute; top: 2.0rem; right: 1.5rem; }
+    #button{position: absolute; top: 6.0rem; right: 1.5rem; margin-bottom: 1rem;}
+    .modal-content {left: 0.5rem; width: 50%;}
+    #hand {width: 3rem; height: 3rem; margin-right: 0.4rem;}
+    
+  }
+
+  
+  @media (max-width: 780px) { /*phone mode*/
+    #slot{font-size: 1.3rem; width: 7rem; height: 5rem;left: 0.5rem; top: 0.5rem;}
+    .info{left: 0rem; padding-left: 25px; top: 12rem;}
+    #wheel{width: 25rem; height: 25rem;}
+    #wallet{position: static; top: 2.0rem; right: 0.5rem; margin-top: 1rem;}
+    .reducted{position: static; top: 2.0rem; right: 0.5rem; }
+    #button2{position: static; margin-top: 1.2rem;}
+    .modal-content {width: 60%; top: 4.0rem;}
+    #hand {width: 4rem; height: 4rem; margin-right: 0.4rem;}
+    #button{position: static; top: 2.0rem; left: 0.5rem; margin-top: 1rem;}
+    
+  }
+  @media (max-width: 300px) { /*phone mode*/
+    #hand {width: 3rem; height: 3rem; margin-right: 0.4rem;}
+    #wheel{width: 18rem; height: 18rem;}
+    #wallet{position: static; top: 2.0rem; right: 0.5rem; margin-top: 1rem; width: 6rem;}
+    #button{position: static; top: 2.0rem; left: 0.5rem; margin-top: 1rem;width: 4rem;}
+  }
+
+  
